@@ -1,3 +1,2 @@
-index.html linguist-detectable=false
-css/style.css linguist-detectable=false
-js/* linguist-detectable=true
+* linguist-vendored
+js/*.js linguist-vendored=false

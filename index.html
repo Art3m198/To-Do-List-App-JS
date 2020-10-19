@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="http://faviconka.ru/ico/faviconka_ru_1009.png" type="image/x-icon">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <link href="css/style.css" rel="stylesheet" id="style-css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css"/>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik&display=swap" rel="stylesheet">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript" src="js/FileSaver.min.js"></script>
+    <script type="text/javascript" src="js/html2canvas.min.js"></script>
+    <title>To Do List</title>
+    </head>
+  <body>
+<div class="container main widget" id="widget">
+	<div class="row">
+		<div class="col-md-12">
+			<div class="heading">				
+				<img src="images/logo.png" />
+                To Do List
+			</div>
+		</div>	
+	</div>
+	<div class="list">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="row">
+					<div class="col-md-12">
+                        <div class="header">
+                            <input type="text" id="input">
+                                <span onclick="newElement()" class="btn">Add</span>
+                        </div>
+                            <ul id="list">
+                            </ul>	
+					</div>
+                </div>	
+            </div>
+		</div>	
+    </div>
+</div>
+<input type="button" class ="btnsave" id="btnSave" value="Save PNG">	
+<script>
+var todolist = document.getElementsByTagName("LI");
+var i;
+for (i = 0; i < todolist.length; i++) {
+  var span = document.createElement("SPAN");
+  var txt = document.createTextNode("\u00D7");
+  span.className = "close";
+  span.appendChild(txt);
+  todolist[i].appendChild(span);
+}
+
+
+var close = document.getElementsByClassName("close");
+var i;
+for (i = 0; i < close.length; i++) {
+  close[i].onclick = function() {
+    var div = this.parentElement;
+    div.style.display = "none";
+  }
+}
+
+var list = document.querySelector('ul');
+list.addEventListener('click', function(ev) {
+  if (ev.target.tagName === 'LI') {
+    ev.target.classList.toggle('checked');
+  }
+}, false);
+
+function newElement() {
+  var li = document.createElement("li");
+  var inputValue = document.getElementById("input").value;
+  var t = document.createTextNode(inputValue);
+  li.appendChild(t);
+  if (inputValue === '') {
+    alert("You didn't enter anything");
+  } else {
+    document.getElementById("list").appendChild(li);
+  }
+  document.getElementById("input").value = "";
+
+  var span = document.createElement("SPAN");
+  var txt = document.createTextNode("\u00D7");
+  span.className = "close";
+  span.appendChild(txt);
+  li.appendChild(span);
+
+  for (i = 0; i < close.length; i++) {
+    close[i].onclick = function() {
+      var div = this.parentElement;
+      div.style.display = "none";
+    }
+  }
+}
+</script>
+<script>
+$(function() { 
+    $("#btnSave").click(function() { 
+        html2canvas($("#widget"), {
+            onrendered: function(canvas) {
+                theCanvas = canvas;
+                canvas.toBlob(function(blob) {
+                    saveAs(blob, "ToDoList.png"); 
+                });
+            }
+        });
+    });
+});
+</script>
+<script type="text/javascript">
+  $("#input").on('keyup', function(e) {
+  var arr = $(this).val().split('.');
+  var result = '';
+  for (var x = 0; x < arr.length; x++) {
+      result += arr[x].replace(/^\s+/, '').charAt(0).toUpperCase() + arr[x].replace(/^\s+/, '').slice(1) + '. ';
+  }
+  $(this).val(result.substring(0, result.length - 2));
+});
+</script>
+</body>
+</html>

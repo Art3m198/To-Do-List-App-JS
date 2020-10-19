@@ -17,10 +17,8 @@ To-do list to organize your tasks.
 <img src="https://github.com/Art3m198/To-Do-List-App-JS/blob/main/images/2-2.PNG" width="50%" height="50%">  
 
 ### Demo gif:  
-<img src="https://github.com/Art3m198/To-Do-List-App-JS/blob/main/images/3.gif" width="50%" height="50%">  
+<img src="https://github.com/Art3m198/To-Do-List-App-JS/blob/main/images/3.gif" width="70%" height="70%">  
 
 ## Demo:
-
-<img src="https://github.com/Art3m198/PHP-MySQL-Search-with-pagination/blob/master/screen/anim.gif" width="50%" height="50%">
 
 [Demo page](https://art3m198.github.io/To-Do-List-App-JS/)

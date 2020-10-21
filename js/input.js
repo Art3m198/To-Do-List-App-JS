@@ -6,3 +6,10 @@ $("#input").on('keyup', function(e) {
     }
     $(this).val(result.substring(0, result.length - 2));
   });
+
+  $(document).keypress(function (e) {
+    if (e.which == 13) {
+            document.getElementById("add").click();
+            document.getElementById("input").value = "";
+    }
+});

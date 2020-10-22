@@ -3,7 +3,7 @@
 To-do list to organize your tasks.
 
 - Add, remove, check a to-do list and save the task list in PNG format
-- To Do List using jQuery 3.2, Bootstrap 4.1, CSS and HTML
+- To Do List use jQuery 3.2, Bootstrap 4.1, CSS and HTML
 
 ## Screenshot
 
